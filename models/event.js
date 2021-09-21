@@ -2,17 +2,17 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 const eventSchema = new Schema({
-    event_name: {
+    eventName: {
         type: String,
         required: true},
     date: Date,
-    street_address: {
+    streetAddress: {
         type: String,
         required: false},
     city: {
         type: String,
         required: false},
-    province: {
+    region: {
         type: String,
         required: false},
     state: {

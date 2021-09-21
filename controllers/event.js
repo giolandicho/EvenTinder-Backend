@@ -5,7 +5,7 @@ export const addEvent = async(req, res)=>{
     const newEvent = new Event(event)
     try {
         await newEvent.save();
-        res.status(201).json(newEvent);
+        return res.status(201).json(newEvent);
     } catch (error) {
         res.status(409).json({message: error.message});
     }
