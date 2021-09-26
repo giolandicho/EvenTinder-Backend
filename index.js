@@ -20,7 +20,7 @@ app.use("/user", userRoutes);
 app.use("/event", eventRoutes);
 
 const PORT = process.env.PORT || 5000;
-const connectionURL = process.env.CONNECTION_URL || "mongodb+srv://SeriousPimp209:WVUgBjYp4jiFDtcN@cluster0.pxtdy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const connectionURL = process.env.CONNECTION_URL
 
 mongoose.connect(connectionURL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> app.listen(PORT, () => console.log(`server running on port ${PORT}`)))
