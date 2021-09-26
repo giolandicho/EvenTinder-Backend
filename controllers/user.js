@@ -5,12 +5,17 @@ export const initializeUser = async (req,res) =>{
     if(auth){
         const user = req.body;
         console.log(user);
-        User.countDocuments({email: user.email}, (error, count) =>{
+        User.countDocuments({ _id: user.uid }, (error, count) =>{
             if(count>0){
                 return res.status(200).send("User verified");
             }
             else{
-                const newUser = new User(user);
+                const newUser = new User({
+                    _id: user.uid,
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                });
                 try {
                     newUser.save();
                     return res.status(201).json(newUser)

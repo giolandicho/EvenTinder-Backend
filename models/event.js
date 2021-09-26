@@ -12,9 +12,6 @@ const eventSchema = new Schema({
     city: {
         type: String,
         required: false},
-    region: {
-        type: String,
-        required: false},
     state: {
         type: String,
         required: false},

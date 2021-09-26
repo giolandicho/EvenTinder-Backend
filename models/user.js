@@ -3,6 +3,7 @@ import mongooseUniqueValidator from "mongoose-unique-validator";
 
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
+    _id: String,
     displayName: {
         type: String,
         required: true,
@@ -16,7 +17,10 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Event"
     }],
-    photoURL: String,
+    photoURL: {
+        type: String,
+        maxLength: 150,
+    },
     likes: [{
         type: Schema.Types.ObjectId,
         ref: "User",
